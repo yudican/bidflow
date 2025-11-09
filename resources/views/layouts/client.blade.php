@@ -10,7 +10,7 @@
 
   <!-- Fonts -->
   <!-- <link rel="icon" href="https://aimidev.s3.us-west-004.backblazeb2.com/upload/user/vRjRT1hSkFsQybE2DxYJHV4maRdirfcuOg1ENONH.ico" type="image/x-icon" /> -->
-  <link rel="icon" href="{{asset('assets/img/fis.jpg')}}" type="image/x-icon" />
+  <link rel="icon" href="{{asset('assets/img/bidflowlogo.jpg')}}" type="image/x-icon" />
   <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
   @viteReactRefresh
   @vite(['resources/css/app.css', 'resources/js/app.js'])

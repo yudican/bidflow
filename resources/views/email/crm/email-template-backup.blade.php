@@ -344,7 +344,7 @@
 
                             <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
                               <p style="font-size: 14px; line-height: 140%;">E-mail ini dibuat secara otomatis, mohon
-                                tidak membalas. Jika butuh bantuan, silakan<br />hubungi info@aimigroup.com</p>
+                                tidak membalas. Jika butuh bantuan, silakan<br />hubungi info@bidflow.com</p>
                             </div>
 
                           </td>

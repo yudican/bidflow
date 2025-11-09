@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <!-- <link rel="icon" href="https://aimidev.s3.us-west-004.backblazeb2.com/upload/user/vRjRT1hSkFsQybE2DxYJHV4maRdirfcuOg1ENONH.ico" type="image/x-icon" /> -->
-    <link rel="icon" href="{{asset('assets/img/fis.jpg')}}" type="image/x-icon" />
+    <link rel="icon" href="{{asset('assets/img/bidflowlogo.jpg')}}" type="image/x-icon" />
 
     <!-- Fonts and icons -->
     <script src="{{asset('assets/js/plugin/webfont/webfont.min.js')}}"></script>
@@ -41,7 +41,7 @@
 
 <body class="login">
     <div class="wrapper wrapper-login wrapper-login-full p-0">
-        <div class="login-aside w-50" style="background-image: url('https://aimidev.s3.us-west-004.backblazeb2.com/upload/user/KNFAitWreVY1ClnUNH4jOonc0PlljhKtiEwKyjNA.svg'); background-repeat:no-repeat;background-size:cover;">
+        <div class="login-aside w-50" style="background-image: url(''); background-repeat:no-repeat;background-size:cover;">
             {{-- <p class="subtitle text-white op-7">Hari Yang Hebat Untuk Orang Yang Kuat.
             </p> --}}
         </div>

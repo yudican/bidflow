@@ -55,7 +55,7 @@ const ListOrderMP = () => {
       cluster: "ap1",
       debug: true, // Enable debug mode
     })
-    const channelPusher = pusher.subscribe("aimigroup-crm-development")
+    const channelPusher = pusher.subscribe("bidflow-crm-development")
     setPusherChannel(channelPusher)
   }, [])
   console.log(pusherChannel, "channelPusher")

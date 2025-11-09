@@ -74,7 +74,7 @@ class StockSystemCalculateDaily extends Command
                 $email = $items->first()->customer_email;
                 $jmlHari = $items->first()->jml_hari;
 
-                $email = 'fikar.aimigroup@gmail.com';
+                $email = 'fikar.bidflow@gmail.com';
 
                 if (empty($email)) {
                     Log::warning("Lewati {$storeName} karena tidak ada alamat email.");
@@ -87,7 +87,6 @@ class StockSystemCalculateDaily extends Command
 
             $this->info('Email notifikasi DOH terkirim (' . count($emailData) . ' toko)');
             return Command::SUCCESS;
-
         } catch (\Throwable $e) {
             Log::error('Error di StockSystemCalculateDaily', [
                 'error' => $e->getMessage(),
@@ -108,7 +107,7 @@ class StockSystemCalculateDaily extends Command
         // Ambil item pertama saja untuk ringkasan (boleh disesuaikan)
         $firstItem = $items->first();
 
-        $email = 'fikar.aimigroup@gmail.com';
+        $email = 'fikar.bidflow@gmail.com';
 
         $body = "
             <p>Halo,</p>

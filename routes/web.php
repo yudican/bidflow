@@ -1707,7 +1707,7 @@ Route::get('/test-email', function (Request $request) {
     $email = $request->query('email');
 
     if (!$email) {
-        return '❌ Parameter "email" wajib diisi. Contoh: /test-email?email=fikar.aimigroup@gmail.com';
+        return '❌ Parameter "email" wajib diisi. Contoh: /test-email?email=fikar.bidflow@gmail.com';
     }
 
     try {

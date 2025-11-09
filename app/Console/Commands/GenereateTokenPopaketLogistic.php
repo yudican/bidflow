@@ -49,7 +49,7 @@ class GenereateTokenPopaketLogistic extends Command
                 ],
                 'body' => json_encode([
                     'device_id' => '6a237757-29fd-6c06-8d20-d383cbe27f9b',
-                    'email' => 'vidi.aimigroup@gmail.com',
+                    'email' => 'vidi.bidflow@gmail.com',
                     'password' => 'p4ssw0rd123',
                 ])
             ]);

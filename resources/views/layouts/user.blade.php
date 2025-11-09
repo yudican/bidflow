@@ -11,7 +11,7 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
   <!-- <link rel="icon" href="https://aimidev.s3.us-west-004.backblazeb2.com/upload/user/vRjRT1hSkFsQybE2DxYJHV4maRdirfcuOg1ENONH.ico" type="image/x-icon" /> -->
-  <link rel="icon" href="{{asset('assets/img/fis.jpg')}}" type="image/x-icon" />
+  <link rel="icon" href="{{asset('assets/img/bidflowlogo.jpg')}}" type="image/x-icon" />
 
   <!-- Fonts and icons -->
   <script src="{{asset('assets/js/plugin/webfont/webfont.min.js')}}"></script>
@@ -98,20 +98,24 @@
           <div class="d-flex flex-row justify-content-center align-items-center">
             <div class="flex">
               <a href="/login/dashboard" class="text-black">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512"><title>ionicons-v5-a</title><polyline points="244 400 100 256 244 112" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/><line x1="120" y1="256" x2="412" y2="256" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 512">
+                  <title>ionicons-v5-a</title>
+                  <polyline points="244 400 100 256 244 112" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px" />
+                  <line x1="120" y1="256" x2="412" y2="256" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px" />
+                </svg>
               </a>
             </div>
-           
+
             <div class="mt-2 ml-2">
               <h3>
-                 Sign Up
+                Sign Up
               </h3>
             </div>
           </div>
           <a class="navbar-brand" href="#">
             {{-- <img src="https://daftar-agen.com/img/logo-light.png" height="30" alt=""> --}}
             <img src="https://media-exp1.licdn.com/dms/image/C560BAQG9nKjKqaZHbQ/company-logo_200_200/0/1662637215084?e=2147483647&v=beta&t=OxVksn_sADSbiS1K1PDtfi74Of9NbImrzu6rO-nYRio" width="60" height="60" alt="logo aimi capital">
-      
+
           </a>
         </nav>
       </div>

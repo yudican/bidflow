@@ -29,7 +29,7 @@ class ProgressSubmitMPEvent implements ShouldBroadcastNow
 
     public function broadcastOn()
     {
-        return new Channel('aimigroup-crm-development');
+        return new Channel('bidflow-crm-development');
     }
 
     public function broadcastAs()

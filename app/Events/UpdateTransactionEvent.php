@@ -21,7 +21,7 @@ class UpdateTransactionEvent implements ShouldBroadcastNow
 
     public function broadcastOn()
     {
-        return ['aimigroup-stagging'];
+        return ['bidflow-stagging'];
     }
 
     public function broadcastAs()

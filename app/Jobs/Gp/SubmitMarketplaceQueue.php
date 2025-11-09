@@ -95,7 +95,7 @@ class SubmitMarketplaceQueue implements ShouldQueue
                 $total = $currentSuccess + 1;
                 $finalTotal = $total >= count($ids) ? count($ids) : $total;
                 setSetting('SUBMIT_PROGRESS_MP', $total);
-                $pusher->trigger('aimigroup-crm-development', 'progress-submit-mp', [
+                $pusher->trigger('bidflow-crm-development', 'progress-submit-mp', [
                     'progress' => $currentSuccess,
                     'total' => $finalTotal,
                     'percentage' => getPercentage($finalTotal, $currentSuccess)
@@ -121,7 +121,7 @@ class SubmitMarketplaceQueue implements ShouldQueue
                 $total = $currentSuccess + 1;
                 $finalTotal = $total >= count($ids) ? count($ids) : $total;
                 setSetting('SUBMIT_PROGRESS_MP', $total);
-                $pusher->trigger('aimigroup-crm-development', 'progress-submit-mp', [
+                $pusher->trigger('bidflow-crm-development', 'progress-submit-mp', [
                     'progress' => $currentSuccess,
                     'total' => $finalTotal,
                     'percentage' => getPercentage($finalTotal, $currentSuccess)
@@ -138,7 +138,7 @@ class SubmitMarketplaceQueue implements ShouldQueue
                     $total = $currentSuccess + 1;
                     $finalTotal = $total >= count($ids) ? count($ids) : $total;
                     setSetting('SUBMIT_PROGRESS_MP', $total);
-                    $pusher->trigger('aimigroup-crm-development', 'progress-submit-mp', [
+                    $pusher->trigger('bidflow-crm-development', 'progress-submit-mp', [
                         'progress' => $currentSuccess,
                         'total' => $finalTotal,
                         'percentage' => getPercentage($finalTotal, $currentSuccess)
@@ -173,7 +173,7 @@ class SubmitMarketplaceQueue implements ShouldQueue
                 $total = $currentSuccess + 1;
                 $finalTotal = $total >= count($ids) ? count($ids) : $total;
                 setSetting('SUBMIT_PROGRESS_MP', $total);
-                $pusher->trigger('aimigroup-crm-development', 'progress-submit-mp', [
+                $pusher->trigger('bidflow-crm-development', 'progress-submit-mp', [
                     'progress' => $currentSuccess,
                     'total' => $finalTotal,
                     'percentage' => getPercentage($finalTotal, $currentSuccess)
@@ -199,7 +199,7 @@ class SubmitMarketplaceQueue implements ShouldQueue
             $finalTotal = $total >= count($ids) ? count($ids) : $total;
 
             setSetting('SUBMIT_PROGRESS_MP', $total);
-            $pusher->trigger('aimigroup-crm-development', 'progress-submit-mp', [
+            $pusher->trigger('bidflow-crm-development', 'progress-submit-mp', [
                 'progress' => $currentSuccess,
                 'total' => $finalTotal,
                 'percentage' => getPercentage($finalTotal, $currentSuccess)
