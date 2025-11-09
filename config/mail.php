@@ -36,11 +36,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp-relay.sendinblue.com'),
+            'host' => env('MAIL_HOST', 'smtp-relay.domain.com'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME', 'riza.aimigroup@gmail.com'),
-            'password' => env('MAIL_PASSWORD', 'xsmtpsib-40e354a4efb92ccfc6877935802ae3b3b66fd7f90bf1c55e505a2bb16b40cac5-TRQ2FCSZq5VADNyE'),
+            'username' => env('MAIL_USERNAME', 'user@domain.com'),
+            'password' => env('MAIL_PASSWORD', '12345678'),
             'timeout' => null,
             'auth_mode' => null,
         ],
