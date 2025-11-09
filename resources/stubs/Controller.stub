@@ -1,0 +1,130 @@
+<?php
+
+namespace App\Http\Livewire[folderNamespace];
+
+use App\Models\[modelName];
+use Livewire\Component;
+[loadStorage]
+
+class [fileName]Controller extends Component
+{
+    [loadFileUpload]
+    [tableId];
+    [tableColumn];
+    [tableFileColumn]
+   
+
+    public $route_name = null;
+
+    public $form_active = false;
+    public $form = [useForm];
+    public $update_mode = false;
+    public $modal = [useModal];
+
+    protected $listeners = ['getData[modelName]ById', 'get[modelName]Id'];
+
+    public function mount()
+    {
+        $this->route_name = request()->route()->getName();
+    }
+
+    public function render()
+    {
+        return view('livewire.[folderNamespaceLower].[viewName]', [
+            'items' => [modelName]::all()
+        ]);
+    }
+
+    public function store()
+    {
+        $this->_validate();
+        [loadFileUploadInsert]
+        $data = [[formRequest]];
+
+        [modelName]::create($data);
+
+        $this->_reset();
+        return $this->emit('showAlert', ['msg' => 'Data Berhasil Disimpan']);
+    }
+
+    public function update()
+    {
+        $this->_validate();
+
+        $data = [[formRequestUpdate]];
+        $row = [modelName]::find([getTableId]);
+
+        [loadFileUploadUpdate]
+
+        $row->update($data);
+
+        $this->_reset();
+        return $this->emit('showAlert', ['msg' => 'Data Berhasil Diupdate']);
+    }
+
+    public function delete()
+    {
+        [modelName]::find([getTableId])->delete();
+
+        $this->_reset();
+        return $this->emit('showAlert', ['msg' => 'Data Berhasil Dihapus']);
+    }
+
+    public function _validate()
+    {
+        $rule = [
+            [makeRules]
+        ];
+
+        [makeRulesFile]
+
+        return $this->validate($rule);
+    }
+
+    public function getData[modelName]ById($[table_name]_id)
+    {
+        $this->_reset();
+        $row = [modelName]::find($[table_name]_id);
+        [getTableId] = $row->id;
+        [getDataById];
+        if ($this->form) {
+            $this->form_active = true;
+            $this->emit('loadForm');
+        }
+        if ($this->modal) {
+            $this->emit('showModal');
+        }
+        $this->update_mode = true;
+    }
+
+    public function get[modelName]Id($[table_name]_id)
+    {
+        $row = [modelName]::find($[table_name]_id);
+        [getTableId] = $row->id;
+    }
+
+    public function toggleForm($form)
+    { 
+        $this->_reset();
+        $this->form_active = $form;
+        $this->emit('loadForm');
+    }
+
+    public function showModal()
+    {
+        $this->_reset();
+        $this->emit('showModal');
+    }
+
+    public function _reset()
+    {
+        $this->emit('closeModal');
+        $this->emit('refreshTable');
+        [getTableId] = null;
+        [resetForm];
+        $this->form = [useForm];
+        $this->form_active = false;
+        $this->update_mode = false;
+        $this->modal = [useModal];
+    }
+}

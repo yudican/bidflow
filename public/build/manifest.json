@@ -1,0 +1,39 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-2c9a0d2d.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/Assets/Icons/excel.svg": {
+    "file": "assets/excel-5076d02c.svg",
+    "src": "resources/js/Assets/Icons/excel.svg"
+  },
+  "resources/js/Assets/Icons/fa6-solid_file-invoice-dollar.svg": {
+    "file": "assets/fa6-solid_file-invoice-dollar-4000dbc9.svg",
+    "src": "resources/js/Assets/Icons/fa6-solid_file-invoice-dollar.svg"
+  },
+  "resources/js/Assets/Icons/flat-color-icons_debt.svg": {
+    "file": "assets/flat-color-icons_debt-15bf9ce0.svg",
+    "src": "resources/js/Assets/Icons/flat-color-icons_debt.svg"
+  },
+  "resources/js/Assets/Icons/jam_coin-f.svg": {
+    "file": "assets/jam_coin-f-0358d3da.svg",
+    "src": "resources/js/Assets/Icons/jam_coin-f.svg"
+  },
+  "resources/js/Assets/Icons/ri_luggage-deposit-fill.svg": {
+    "file": "assets/ri_luggage-deposit-fill-fcf46432.svg",
+    "src": "resources/js/Assets/Icons/ri_luggage-deposit-fill.svg"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-d11a0919.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-d11a0919.css"
+    ],
+    "file": "assets/app-c5e139d3.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

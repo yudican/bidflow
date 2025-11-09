@@ -1,0 +1,9 @@
+node_modules
+.env
+vendor
+public/hot
+# storage
+.yarn
+storage/framework/cache/
+storage/framework/views/
+node_modules

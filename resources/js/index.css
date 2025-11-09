@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
+.ant-upload.ant-upload-select-picture-card {
+  /* width: 100%; */
+  height: 104px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+  vertical-align: top;
+  background-color: #fafafa;
+  border: 1px dashed #d9d9d9;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.row-dragging {
+  background: #fafafa;
+  border: 1px solid #ccc;
+}
+
+.row-dragging td {
+  padding: 16px;
+}
+
+.row-dragging .drag-visible {
+  visibility: visible;
+}
+
+/* .ant-select-status-error.ant-select:not(.ant-select-disabled):not(
+    .ant-select-customize-input
+  ):not(.ant-pagination-size-changer)
+  .ant-select-selector {
+  background-color: #fff;
+  border-color: transparent !important;
+} */
+
+.editor-rich-text {
+  height: 275px !important;
+  border: 1px solid #f1f1f1 !important;
+  padding: 5px !important;
+  border-radius: 2px !important;
+}
+
+div.ant-upload {
+  width: 100%;
+}
