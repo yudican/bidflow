@@ -1,8 +1,12 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-2c9a0d2d.css",
+    "file": "assets/app-dc3f5dde.css",
     "isEntry": true,
     "src": "resources/css/app.css"
+  },
+  "resources/js/Assets/BgAuth.svg": {
+    "file": "assets/BgAuth-654b300e.svg",
+    "src": "resources/js/Assets/BgAuth.svg"
   },
   "resources/js/Assets/Icons/excel.svg": {
     "file": "assets/excel-5076d02c.svg",
@@ -25,14 +29,14 @@
     "src": "resources/js/Assets/Icons/ri_luggage-deposit-fill.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-d11a0919.css",
+    "file": "assets/app-abde24e3.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-d11a0919.css"
+      "assets/app-abde24e3.css"
     ],
-    "file": "assets/app-c5e139d3.js",
+    "file": "assets/app-1e9df121.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
