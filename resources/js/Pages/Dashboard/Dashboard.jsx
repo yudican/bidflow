@@ -5,7 +5,7 @@ import {
   ShoppingFilled,
   UserOutlined,
 } from "@ant-design/icons"
-import { Button, Tabs } from "antd"
+import { Button, Empty, Tabs } from "antd"
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar"
@@ -82,8 +82,8 @@ const Dashboard = () => {
   return (
     <Layout title="Dashboardds">
       <div className="card">
-        <div className="card-body">
-          <Tabs
+        <div className="card-body flex items-center justify-center">
+          {/* <Tabs
             defaultActiveKey="0"
             onChange={{}}
             items={[
@@ -114,7 +114,8 @@ const Dashboard = () => {
                 children: <DashboardContentWarehouse data={dataWarehouse} />,
               },
             ]}
-          />
+          /> */}
+          <Empty />
         </div>
       </div>
     </Layout>
