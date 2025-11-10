@@ -508,24 +508,24 @@ const PurchaseOrderForm = () => {
   const onFinish = (values) => {
     setLoading(true)
     setLoadingSubmit(true)
-    const vendor_po = values?.vendor_code
-    const allVendorsMatch = productNeed.every(
-      (item) => item.carton_vendor_code === vendor_po
-    )
+    // const vendor_po = values?.vendor_code
+    // const allVendorsMatch = productNeed.every(
+    //   (item) => item.carton_vendor_code === vendor_po
+    // )
 
-    console.log("finish vendor_po", vendor_po)
-    console.log("finish items", productNeed)
+    // console.log("finish vendor_po", vendor_po)
+    // console.log("finish items", productNeed)
 
-    if (!allVendorsMatch) {
-      setLoading(false)
-      setLoadingSubmit(false)
-      return toast.error(
-        "Vendor pada PO tidak sama dengan vendor produk karton",
-        {
-          position: toast.POSITION.TOP_RIGHT,
-        }
-      )
-    }
+    // if (!allVendorsMatch) {
+    //   setLoading(false)
+    //   setLoadingSubmit(false)
+    //   return toast.error(
+    //     "Vendor pada PO tidak sama dengan vendor produk karton",
+    //     {
+    //       position: toast.POSITION.TOP_RIGHT,
+    //     }
+    //   )
+    // }
 
     const checkProductId = productNeed.every(
       (item) => item.product_id && item.harga_satuan > 0
