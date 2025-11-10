@@ -61,12 +61,12 @@ class ApiAuthController extends Controller
 
         // Attempt login - determine login field (email or telepon)
         $loginField = filter_var($request->email_telepon, FILTER_VALIDATE_EMAIL) ? 'email' : 'telepon';
-        
+
         $credentials = [
             $loginField => $request->email_telepon,
             'password' => $request->password
         ];
-        
+
         if (!Auth::attempt($credentials)) {
             return response()->json([
                 'error' => true,
@@ -80,7 +80,7 @@ class ApiAuthController extends Controller
         $tokenResult = $user->createToken('auth-token')->plainTextToken;
 
         // Get fresh user data with relations
-        $userData = User::with('role')->find($user->id);
+        $userData = User::find($user->id);
 
         $response = [
             'error' => false,
