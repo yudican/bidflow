@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Api\V1\ActivityController;
 use App\Http\Controllers\Api\V1\ContactController as V1ContactController;
 use App\Http\Controllers\Api\V1\Prospect\ProspectController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Notification\PaymentNotification;
 use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\Spa\AgentDomainManagementController;
