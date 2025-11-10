@@ -22,7 +22,7 @@ class ApiAuthController extends Controller
     {
         // Validasi input
         $validate = Validator::make($request->all(), [
-            'email_telepon' => 'required|email',
+            'email_telepon' => 'required|string',
             'password' => 'required',
         ]);
 
@@ -35,14 +35,16 @@ class ApiAuthController extends Controller
             ], 422);
         }
 
-        // Cari user berdasarkan email
-        $user = User::where('email', $request->email_telepon)->first();
+        // Cari user berdasarkan email atau telepon
+        $user = User::where('email', $request->email_telepon)
+            ->orWhere('telepon', $request->email_telepon)
+            ->first();
 
         if (!$user) {
             return response()->json([
                 'error' => true,
                 'status_code' => 404,
-                'message' => 'Email tidak terdaftar',
+                'message' => 'Email/Telepon tidak terdaftar',
                 'data' => null
             ], 404);
         }
@@ -57,13 +59,19 @@ class ApiAuthController extends Controller
             ], 401);
         }
 
-        // Attempt login
-        $credentials = $request->only(['email', 'password']);
+        // Attempt login - determine login field (email or telepon)
+        $loginField = filter_var($request->email_telepon, FILTER_VALIDATE_EMAIL) ? 'email' : 'telepon';
+        
+        $credentials = [
+            $loginField => $request->email_telepon,
+            'password' => $request->password
+        ];
+        
         if (!Auth::attempt($credentials)) {
             return response()->json([
                 'error' => true,
                 'status_code' => 401,
-                'message' => 'Email atau password salah',
+                'message' => 'Email/Telepon atau password salah',
                 'data' => null
             ], 401);
         }
