@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\UserDetail;
@@ -18,32 +19,91 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
-
-
+        // Validasi input
         $validate = Validator::make($request->all(), [
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 
         if ($validate->fails()) {
-
+            // Jika request dari API (JSON), return JSON response
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'error' => true,
+                    'status_code' => 422,
+                    'message' => 'Validasi gagal',
+                    'data' => $validate->errors()
+                ], 422);
+            }
+            // Jika web request, redirect dengan error
             return redirect('login')->with(['error' => 'Silahkan isi semua form yang tersedia']);
         }
 
+        // Cari user berdasarkan email
+        $user = User::where('email', $request->email)->first();
+
         if (!$user) {
-            return redirect('login')->with(['error' => 'Username tidak terdaftar']);
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'error' => true,
+                    'status_code' => 404,
+                    'message' => 'Email tidak terdaftar',
+                    'data' => null
+                ], 404);
+            }
+            return redirect('login')->with(['error' => 'Email tidak terdaftar']);
         }
 
-        $credentials = request(['email', 'password']);
-        if (!Auth::attempt($credentials)) {
-            return redirect('login')->with(['error' => 'Username atau password salah']);
-        }
-
+        // Cek password
         if (!Hash::check($request->password, $user->password)) {
-            return redirect('login')->with(['error' => 'Unathorized, password yang kamu masukkan tidak sesuai']);
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'error' => true,
+                    'status_code' => 401,
+                    'message' => 'Password yang Anda masukkan salah',
+                    'data' => null
+                ], 401);
+            }
+            return redirect('login')->with(['error' => 'Password yang Anda masukkan salah']);
         }
-        // dd($user->createToken('auth-token')->plainTextToken);
+
+        // Attempt login
+        $credentials = $request->only(['email', 'password']);
+        if (!Auth::attempt($credentials)) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'error' => true,
+                    'status_code' => 401,
+                    'message' => 'Email atau password salah',
+                    'data' => null
+                ], 401);
+            }
+            return redirect('login')->with(['error' => 'Email atau password salah']);
+        }
+
+        // Jika login sukses untuk API request
+        if ($request->expectsJson()) {
+            // Generate token untuk API
+            $tokenResult = $user->createToken('auth-token')->plainTextToken;
+            
+            // Get fresh user data with relations
+            $userData = User::with('role')->find($user->id);
+
+            $response = [
+                'error' => false,
+                'status_code' => 200,
+                'message' => 'Login berhasil',
+                'data' => [
+                    'access_token' => $tokenResult,
+                    'token_type' => 'Bearer',
+                    'user' => new UserResource($userData)
+                ]
+            ];
+
+            return response()->json($response, 200);
+        }
+
+        // Jika web request, redirect ke dashboard
         return redirect('dashboard');
     }
 

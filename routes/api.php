@@ -121,6 +121,9 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
+Route::prefix('auth')->group(function () {
+    Route::post('login', [AuthController::class, 'login'])->name('user.login');
+});
 // agent location
 Route::get('domain', [AgentLocationController::class, 'listAgentDomain']);
 Route::get('district/{prov_id}', [AgentLocationController::class, 'listDistrictByProvince']);
@@ -1412,7 +1415,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
             ]);
         });
         Route::post('/contact-group/create', [AccurateController::class, 'contactGroupCreate']);
-        
+
         // DOH Settings for Contact Groups
         Route::get('/contact-group/{contactGroupId}/doh-settings', [AccurateController::class, 'contactGroupDohSettings']);
         Route::post('/contact-group/{contactGroupId}/doh-settings', [AccurateController::class, 'saveContactGroupDohSettings']);
@@ -1453,7 +1456,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
                     'cgc.kec',
                     'cgc.jml_hari'
                 ])
-                ->get();            
+                ->get();
 
             return response()->json([
                 'status' => 'success',
@@ -1541,3 +1544,55 @@ Route::get('s/{short_code}/preview', [RedirectController::class, 'preview'])->na
 
 // URL Shortener API for External Redirector (public access)
 Route::get('redirector/{short_code}', [UrlShortenerController::class, 'getByShortCode'])->name('api.redirector.get');
+
+Route::get('sync-sc-user/{user_id}', function ($user_id) {
+    $user = User::find($user_id);
+    if (!$user) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'User not found'
+        ], 404);
+    }
+    return response()->json([
+        'status' => 'success',
+        'message' => 'Data Sales Return berhasil disinkronkan.',
+        'data' => [
+            'id' => $user->id,
+            'name' => $user->name,
+            'uid' => $user->uid,
+            'password' => $user->password,
+            'email' => $user->email,
+            'role' => $user->role->role_name,
+            'telepon' => $user->telepon,
+        ]
+    ]);
+});
+
+Route::get('sync-sc-user-name', function () {
+    $user = User::where('name', request()->name)->first();
+    if (!request()->name) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Name is required'
+        ], 404);
+    }
+    if (!$user) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'User not found'
+        ], 404);
+    }
+    return response()->json([
+        'status' => 'success',
+        'message' => 'Data Sales Return berhasil disinkronkan.',
+        'data' => [
+            'id' => $user->id,
+            'name' => $user->name,
+            'uid' => $user->uid,
+            'password' => $user->password,
+            'email' => $user->email,
+            'role' => $user->role->role_name,
+            'telepon' => $user->telepon,
+        ]
+    ]);
+});

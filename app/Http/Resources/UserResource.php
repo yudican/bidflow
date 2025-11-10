@@ -21,7 +21,7 @@ class UserResource extends JsonResource
             'profile_photo_url' => $this->profile_photo_url,
             'telepon' => $this->telepon,
             'gender' => $this->gender,
-            'role' => $this->role->role_type,
+            'role' => $this->role->role_name,
             'account_id' => $this->company_id,
             'bod' => date('Y-m-d', strtotime($this->bod)),
             // 'poin' => $this->poin,
