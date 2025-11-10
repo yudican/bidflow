@@ -22,7 +22,7 @@ class ApiAuthController extends Controller
     {
         // Validasi input
         $validate = Validator::make($request->all(), [
-            'email' => 'required|email',
+            'email_telepon' => 'required|email',
             'password' => 'required',
         ]);
 
@@ -36,7 +36,7 @@ class ApiAuthController extends Controller
         }
 
         // Cari user berdasarkan email
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email_telepon)->first();
 
         if (!$user) {
             return response()->json([
@@ -70,7 +70,7 @@ class ApiAuthController extends Controller
 
         // Generate token untuk API
         $tokenResult = $user->createToken('auth-token')->plainTextToken;
-        
+
         // Get fresh user data with relations
         $userData = User::with('role')->find($user->id);
 
@@ -140,7 +140,7 @@ class ApiAuthController extends Controller
 
         // Create new token
         $tokenResult = $request->user()->createToken('auth-token')->plainTextToken;
-        
+
         // Get user data
         $userData = User::with('role')->find($request->user()->id);
 
