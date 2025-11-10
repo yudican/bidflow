@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AjaxController;
+use App\Http\Controllers\Api\ApiAuthController;
 use App\Http\Controllers\Api\Transaction\ConfirmPaymentController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -122,8 +123,18 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
+// API Authentication Routes
 Route::prefix('auth')->group(function () {
-    Route::post('login', [AuthController::class, 'login'])->name('user.login');
+    // Public routes
+    Route::post('login', [ApiAuthController::class, 'login'])->name('api.auth.login');
+    
+    // Protected routes (require authentication)
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('logout', [ApiAuthController::class, 'logout'])->name('api.auth.logout');
+        Route::get('me', [ApiAuthController::class, 'me'])->name('api.auth.me');
+        Route::post('refresh', [ApiAuthController::class, 'refresh'])->name('api.auth.refresh');
+        Route::post('revoke-all', [ApiAuthController::class, 'revokeAll'])->name('api.auth.revoke-all');
+    });
 });
 // agent location
 Route::get('domain', [AgentLocationController::class, 'listAgentDomain']);
